@@ -1,0 +1,47 @@
+<template 
+    format = "1"
+    revision = "1"
+    name = "MVVM Fragment From Base Fragment"
+    description = "Creates a new Fragment">
+
+    <category value = "Fragment" />
+
+    <parameter 
+        id = "fragmentClass"
+        name = "Fragment Name"
+        type = "string"
+        constraints = "class|unique|nonempty"
+        suggest = "${layoutToActivity(fragmentLayout)}"
+        default = "HomeFragment"
+        help = "The name of the fragment class to create" />
+
+    <parameter 
+        id = "fragmentLayout"
+        name = "Resource Fragment Name"
+        type = "string"
+        constraints = "layout|unique|nonempty"
+        suggest = "${activityToLayout(fragmentClass)}"
+        default = "fragment_home"
+        help = "The name of the resource layout fragment to create" />
+
+    <parameter 
+        id = "daggerComponent"
+        name = "Dagger Component Name"
+        type = "string"
+        constraints = "nonempty"
+        default = "homeComponent"
+        help = "The name of the dagger component" />
+
+    <parameter 
+        id = "packageName"
+        name = "Package"
+        type = "string"
+        constraints = "package"
+        default = "com.batdemir.example" />
+
+
+    <globals file="globals.xml.ftl" />
+
+    <execute file = "recipe.xml.ftl" />
+    
+</template>
